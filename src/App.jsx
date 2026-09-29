@@ -4,20 +4,31 @@ const Header = (props) => {
   )
 }
 
+const Part = (props) => {
+  return (
+    <p>
+      {props.name} {props.exercises}
+    </p>
+  )
+}
+
 const Content = (props) => {
   return (
     <div>
-      <p>
-        {props.part1} {props.exercises1}
-      </p>
+      <Part
+        name={props.part1}
+        exercises={props.exercises1}
+      />
 
-      <p>
-        {props.part2} {props.exercises2}
-      </p>
+      <Part
+        name={props.part2}
+        exercises={props.exercises2}
+      />
 
-      <p>
-        {props.part3} {props.exercises3}
-      </p>
+      <Part
+        name={props.part3}
+        exercises={props.exercises3}
+      />
     </div>
   )
 }
@@ -33,13 +44,13 @@ const Total = (props) => {
 const App = () => {
   const course = 'CSIT340 - Web Development'
 
-  const part1 = 'Data Analytics'
+  const part1 = 'IT317 - Project Management'
   const exercises1 = 3
 
-  const part2 = 'Object-Oriented Programming 2'
+  const part2 = 'IT365 - Data Analytics '
   const exercises2 = 3
 
-  const part3 = 'Applications Development and Emerging Technology'
+  const part3 = 'CSIT327 - Information Management'
   const exercises3 = 3
 
   return (
