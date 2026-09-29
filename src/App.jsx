@@ -1,5 +1,5 @@
 const Header = (props) => {
-  return <h1>{props.course}</h1>
+  return <h1>{props.course.name}</h1>
 }
 
 const Part = (props) => {
@@ -13,9 +13,9 @@ const Part = (props) => {
 const Content = (props) => {
   return (
     <div>
-      <Part part={props.parts[0]} />
-      <Part part={props.parts[1]} />
-      <Part part={props.parts[2]} />
+      <Part part={props.course.parts[0]} />
+      <Part part={props.course.parts[1]} />
+      <Part part={props.course.parts[2]} />
     </div>
   )
 }
@@ -24,36 +24,37 @@ const Total = (props) => {
   return (
     <p>
       Number of exercises{' '}
-      {props.parts[0].exercises +
-        props.parts[1].exercises +
-        props.parts[2].exercises}
+      {props.course.parts[0].exercises +
+        props.course.parts[1].exercises +
+        props.course.parts[2].exercises}
     </p>
   )
 }
 
 const App = () => {
-  const course = 'CSIT340 - Web Development'
-
-  const parts = [
-    {
-      name: 'IT317 - Project Management',
-      exercises: 3
-    },
-    {
-      name: 'IT365 - Data Analytics',
-      exercises: 3
-    },
-    {
-      name: 'CSIT327 - Information Management',
-      exercises: 3
-    }
-  ]
+  const course = {
+    name: 'CSIT340 - Web Development',
+    parts: [
+      {
+        name: 'IT317 - Project Management',
+        exercises: 3
+      },
+      {
+        name: 'IT365 - Data Analytics',
+        exercises: 3
+      },
+      {
+        name: 'CSIT327 - Information Management',
+        exercises: 3
+      }
+    ]
+  }
 
   return (
     <div>
       <Header course={course} />
-      <Content parts={parts} />
-      <Total parts={parts} />
+      <Content course={course} />
+      <Total course={course} />
     </div>
   )
 }
